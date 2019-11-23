@@ -1,4 +1,10 @@
 """
+Find the index in the array (if it exists) where the sum to the left hand side of the index and sum to the right hand side of the index
+is equal.
+
+CODEWARS
+"""
+"""
 def find_even_index(arr):
     n = len(arr)
     for i in range(0,n):
@@ -10,7 +16,7 @@ def find_even_index(arr):
     
     return -1
 """
-
+"""
 def find_even_index(arr):
 	n = len(arr)
 	left_sum_arr = [0]*n
@@ -23,6 +29,20 @@ def find_even_index(arr):
 	for j in range(0,n):
 		if(left_sum_arr[j] == right_sum_arr[j]):
 			return j
+
+	return -1
+"""
+
+def find_even_index(arr):
+	left_sum = 0
+	right_sum = sum(arr)
+
+	for i,a in enumerate(arr):
+		right_sum -= a
+		if(left_sum == right_sum):
+			return i
+
+		left_sum += a
 
 	return -1
 
