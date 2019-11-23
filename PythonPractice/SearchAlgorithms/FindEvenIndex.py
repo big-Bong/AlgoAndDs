@@ -1,3 +1,4 @@
+"""
 def find_even_index(arr):
     n = len(arr)
     for i in range(0,n):
@@ -9,6 +10,7 @@ def find_even_index(arr):
     
     return -1
 """
+
 def find_even_index(arr):
 	n = len(arr)
 	left_sum_arr = [0]*n
@@ -23,7 +25,6 @@ def find_even_index(arr):
 			return j
 
 	return -1
-"""
 
 arr = [1,2,3,4,3,2,1]
 print(find_even_index(arr))
