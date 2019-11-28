@@ -6,51 +6,49 @@ class TreeNode:
         self.right = None
 
 class Solution:
-	def checkStack(self, nodeVal,stack):
-		if(not stack):
-			stack.append(nodeVal)
-		elif(nodeVal == stack[len(stack)-1]):
-			stack.pop()
-		else:
-			stack.append(nodeVal)
-
-		return stack
-
 	def isSymmetric(self, root: TreeNode) -> bool:
-		queue = [root]
-		stack = []
+
+		if(root == None):
+			return False
+
+		queue = []
+		queue.append(root)
+		queue.append(root)
+
+		while(queue):
+			leftTree = queue.pop(0)
+			rightTree = queue.pop(0)
+
+			if(leftTree.val != rightTree.val):
+				return False
+
+			if((leftTree.left == None and rightTree.right == None)):
+				pass
+			elif(leftTree.left == None or rightTree.right == None):
+				return False
+			else:
+				queue.append(leftTree.left)
+				queue.append(rightTree.right)
+
+			if((leftTree.right == None and rightTree.left == None)):
+				pass
+			elif(leftTree.right == None or rightTree.left == None):
+				return False
+			else:
+				queue.append(leftTree.right)
+				queue.append(rightTree.left)
+
+		return True
+
 		
-		while(True):
-			if(not queue):
-				break
-
-			root = queue.pop(0)
-
-			if(root.left):
-				queue.append(root.left)
-				nodeVal = root.left.val
-				stack = self.checkStack(nodeVal,stack)
-			else:
-				nodeVal = None
-				stack = self.checkStack(nodeVal,stack)
-
-			if(root.right):
-				queue.append(root.right)
-				nodeval = root.right.val
-				stack = self.checkStack(nodeVal,stack)
-			else:
-				nodeval = None
-				stack = self.checkStack(nodeVal,stack)
-
-		return (not stack)
 
 
 root = TreeNode(1)
 root.left = TreeNode(2)
 root.right = TreeNode(2)
-#root.left.left = TreeNode(3)
-root.left.right = TreeNode(3)
-#root.right.left = TreeNode(4)
+root.left.left = TreeNode(3)
+root.left.right = TreeNode(4)
+root.right.left = TreeNode(4)
 root.right.right = TreeNode(3)
 
 sol = Solution()
