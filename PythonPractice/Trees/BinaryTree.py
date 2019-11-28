@@ -38,6 +38,22 @@ def levelOrderTraversal(root):
 		if(current.right):
 			queue.append(current.right)
 
+def inorderWithoutRecursion(root):
+	stack = []
+	current = root
+
+	while(True):
+		if(current == None and (len(stack)==0)):
+			break
+		elif(current == None):
+			current = stack.pop()
+			print(current.value)
+			current = current.right
+		else:
+			stack.append(current)
+			current = current.left
+
+
 def height(root):
 	if(root == None):
 		return 0
@@ -51,7 +67,7 @@ def height(root):
 		return rheight+1
 
 
-
+"""
 root = BinaryTreeNode(25)
 root.left = BinaryTreeNode(15)
 root.right = BinaryTreeNode(50)
@@ -67,9 +83,12 @@ root.right.left.left = BinaryTreeNode(31)
 root.right.left.right = BinaryTreeNode(44)
 root.right.right.left = BinaryTreeNode(66)
 root.right.right.right = BinaryTreeNode(90)
+"""
+root = BinaryTreeNode(1)
 
-print("Height of tree")
-print(height(root))
+print("Inorder without recursion")
+inorderWithoutRecursion(root)
+
 """
 print("inorder")
 inorder(root)
