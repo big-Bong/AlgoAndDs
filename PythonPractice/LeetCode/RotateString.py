@@ -22,6 +22,6 @@ def rotateString(A: str, B: str) -> bool:
         
     return(B[j:]==A[:start])
 
-A = "waterbottle"
-B = "erbottlewat"
+A = "anna"
+B = "nnaa"
 print(rotateString(A,B))
