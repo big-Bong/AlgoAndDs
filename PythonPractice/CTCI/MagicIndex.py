@@ -1,6 +1,6 @@
 def magicIndex(arr,start,end):
 	if(end < start):
-		return "Doesn't exist"
+		return
 	
 	mid = start + int((end-start)/2)
 	if(arr[mid] == mid):
