@@ -9,6 +9,23 @@ def intersect(nums1, nums2):
 		return helperIntersect(nums1,nums2)
 	return helperIntersect(nums2,nums1)
 
+def helperIntersect(smaller,larger):
+	dict = {}
+	output = []
+
+	for elem in smaller:
+		if(elem in dict):
+			dict[elem] += 1
+		else:
+			dict[elem] = 1
+
+	for elem in larger:
+		if(elem in dict and dict[elem] != 0):
+			output.append(elem)
+			dict[elem] -= 1
+
+	return output
+
 def intersectSorted(nums1,nums2):
 	if(not nums1 or not nums2):
 		return []
@@ -27,24 +44,6 @@ def intersectSorted(nums1,nums2):
 			j += 1
 		else:
 			i += 1
-
-	return output
-
-
-def helperIntersect(smaller,larger):
-	dict = {}
-	output = []
-
-	for elem in smaller:
-		if(elem in dict):
-			dict[elem] += 1
-		else:
-			dict[elem] = 1
-
-	for elem in larger:
-		if(elem in dict and dict[elem] != 0):
-			output.append(elem)
-			dict[elem] -= 1
 
 	return output
 
