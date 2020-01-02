@@ -47,7 +47,7 @@ def intersectSorted(nums1,nums2):
 
 	return output
 
-nums1 = [1]
+nums1 = [1,3]
 nums2 = [3]
 
 print(intersectSorted(nums1,nums2))
