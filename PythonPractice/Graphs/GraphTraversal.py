@@ -26,24 +26,18 @@ class Graph:
 	def DFS(self,startVertex):
 		N = len(self.graph)
 		visited = [False]*N
-		stack = []
 		traversalList = []
 
-		self.DFSUtil(startVertex,visited,stack,traversalList)
+		self.DFSUtil(startVertex,visited,traversalList)
 		print(traversalList)
 
-	def DFSUtil(self,vertex,visited,stack,traversalList):
-		if(not visited[vertex]):
-			stack.append(vertex)
-			traversalList.append(vertex)
-			visited[vertex] = True
+	def DFSUtil(self,vertex,visited,traversalList):
+		traversalList.append(vertex)
+		visited[vertex] = True
 
 		for elem in self.graph[vertex]:
 			if(not visited[elem]):
-				self.DFSUtil(elem,visited,stack,traversalList)
-
-		if(stack):
-			self.DFSUtil(stack.pop(),visited,stack,traversalList)
+				self.DFSUtil(elem,visited,traversalList)
 
 		return None
 
