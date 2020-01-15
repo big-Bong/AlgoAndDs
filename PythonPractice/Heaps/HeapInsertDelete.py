@@ -68,7 +68,6 @@ insert(root,8)
 insert(root,7)
 insert(root,9)
 insert(root,10)
-insert(root,1)
 printHeap(root)
 
 
