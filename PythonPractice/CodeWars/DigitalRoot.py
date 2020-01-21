@@ -13,13 +13,7 @@ def digital_root(n):
 
 #METHOD2
 def digital_root2(n):
-	s = str(n)
-	arr = []
-	for elem in s:
-		arr.append(int(elem))
-	if(sum(arr)<10):
-		return sum(arr)
-	return digital_root2(sum(arr))
+	return n if (n<10) else digital_root2(sum(map(int,str(n))))
 
 print(digital_root(989891))
 print(digital_root2(989891))
