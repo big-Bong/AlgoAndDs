@@ -15,5 +15,10 @@ def digital_root(n):
 def digital_root2(n):
 	return n if (n<10) else digital_root2(sum(map(int,str(n))))
 
+#METHOD3
+def digital_root3(n):
+	return n%9 or n and 9
+
 print(digital_root(989891))
 print(digital_root2(989891))
+print(digital_root3(9898911218))
