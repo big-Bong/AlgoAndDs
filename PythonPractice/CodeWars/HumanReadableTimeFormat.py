@@ -1,4 +1,4 @@
-def format_duration(seconds):
+def format_duration1(seconds):
     #your code here
     if(seconds == 0):
         return "now"
@@ -72,5 +72,21 @@ def format_duration(seconds):
     else:
         return output+str(r_m)+" seconds"
 
-seconds = 3279186
-print(format_duration(seconds))
+def format_duration2(seconds):
+    time_arr = [("year",365*24*60*60),("day",24*60*60),("hour",60*60),("minute",60),("second",1)]
+
+    chunks = []
+    for name,secs in time_arr:
+        val = seconds // secs
+        if(val):
+            if(val > 1):
+                name += "s"
+            chunks.append(str(val)+" "+name)
+        seconds = seconds % secs
+
+    return ', '.join(chunks[:-1])+" and "+chunks[-1] if(len(chunks) > 1) else chunks[0]
+
+
+seconds = 32791860813
+print(format_duration1(seconds))
+print(format_duration2(seconds))
