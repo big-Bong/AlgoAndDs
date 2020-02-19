@@ -63,6 +63,38 @@ def longestPalindromicSubstringDP(string):
 
 	return output
 
-string = "bdaac"
-print(longestPalindromicSubstringDP(string))
+def longestPalindromicSubstringOptimized(s):
+	if(not s):
+		return ""
+
+	N = len(s)
+	maxLength = 0
+	output = ""
+
+	for i in range(N):
+		start = end = i
+		while((start>= 0 and end < N) and s[start] == s[end]):
+			length = end - start + 1
+			if(length > maxLength):
+				maxLength = length
+				output = s[start:end+1]
+			start -= 1
+			end += 1
+
+	for i in range(N-1):
+		start = i
+		end = i+1
+		while((start >= 0 and end < N) and s[start] == s[end]):
+			length = end - start + 1
+			if(length > maxLength):
+				maxLength = length
+				output = s[start:end+1]
+			start -= 1
+			end += 1
+
+	return output
+
+
+string = ""
+print(longestPalindromicSubstringOptimized(string))
 
