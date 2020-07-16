@@ -10,7 +10,7 @@ def merge(arr,l,mid,r):
 	i = l
 	j = mid+1
 
-	while(i <= mid and j <= r):
+	while(i < j and j <= r):
 		if(arr[i] >= arr[j]):
 			temp = arr[j]
 			left = i
@@ -22,5 +22,5 @@ def merge(arr,l,mid,r):
 			j += 1
 		i += 1
 
-arr = [1,2,3,1,3,2]
+arr = [4,2,1,3]
 print(mergeSort(arr,0,len(arr) - 1))
