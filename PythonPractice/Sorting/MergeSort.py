@@ -22,5 +22,35 @@ def merge(arr,l,mid,r):
 			j += 1
 		i += 1
 
-arr = [4,2,1,3]
-print(mergeSort(arr,0,len(arr) - 1))
+def mergeSortOptimized(arr):
+	N = len(arr)
+	if(N>1):
+		mid = N//2
+		L = arr[:mid]
+		R = arr[mid:]
+		mergeSortOptimized(L)
+		mergeSortOptimized(R)
+
+		i = j = k = 0
+		while(i < len(L) and j < len(R)):
+			if(L[i] < R[j]):
+				arr[k] = L[i]
+				i += 1
+			else:
+				arr[k] = R[j]
+				j += 1
+			k += 1
+
+		while(i < len(L)):
+			arr[k] = L[i]
+			i += 1
+			k += 1
+
+		while(j < len(R)):
+			arr[k] = R[j]
+			j += 1
+			k += 1
+	return arr
+
+arr = [4,2,3,1]
+print(mergeSortOptimized(arr))
