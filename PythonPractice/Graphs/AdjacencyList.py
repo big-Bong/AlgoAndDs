@@ -43,8 +43,8 @@ graph.addEdge(3, 4)
 
 graph.printGraph()
 
-graph.addVertex()
-graph.addEdge(1,5)
-graph.addEdge(5,2)
+#graph.addVertex()
+#graph.addEdge(1,5)
+#graph.addEdge(5,2)
 
-graph.printGraph()
+#raph.printGraph()
