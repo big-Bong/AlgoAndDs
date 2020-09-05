@@ -1,25 +1,3 @@
-"""
-def repeatedSubstringPattern(s):
-	N = len(s)
-	if(s == 1):
-		return True
-
-	start_str = s[0]
-	i = 1
-	flag = False
-	while(i < N):
-		if(start_str == s[i:i+len(start_str)]):
-			flag = True
-			i += len(start_str) - 1
-		else:
-			start_str = s[:i+1]
-			flag = False
-
-		i += 1
-
-	return flag
-"""
-
 def repeatedSubstringPattern(s):
 	N = len(s)
 	if(N == 1):
