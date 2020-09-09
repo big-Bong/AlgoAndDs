@@ -25,10 +25,10 @@ def preorderSum(root,num,sum):
 
 root = Tree(0)
 root.left = Tree(0)
-#root.left.left = Tree(0)
-#root.left.right = Tree(1)
-#root.right = Tree(1)
-#root.right.left = Tree(0)
-#root.right.right = Tree(1)
+root.left.left = Tree(0)
+root.left.right = Tree(1)
+root.right = Tree(1)
+root.right.left = Tree(0)
+root.right.right = Tree(1)
 
 print(sumRootToLeaf(root))
