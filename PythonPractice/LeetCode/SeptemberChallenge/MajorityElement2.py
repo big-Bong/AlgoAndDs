@@ -19,5 +19,5 @@ def majorityElement2(nums):
 
 	return output
 
-nums = [1,1,1,3,3,2,2,2]
+nums = [3,2,3]
 print(majorityElement2(nums))
