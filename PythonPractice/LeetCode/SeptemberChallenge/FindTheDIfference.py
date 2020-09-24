@@ -27,4 +27,4 @@ def findTheDifference2(s,t):
 s = "aabbcd"
 t = "aabcbad"
 
-print(findTheDifference(s,t))
+print(findTheDifference2(s,t))
