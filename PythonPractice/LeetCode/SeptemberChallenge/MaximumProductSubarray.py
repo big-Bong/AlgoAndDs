@@ -83,11 +83,28 @@ def checkNegsInArr(arr):
 
 	return negs
 
+def maxProductSubarray(nums):
+	if(not nums):
+		return 0
+	N = len(nums)
+	max_product = nums[0]
+	min_product = nums[0]
+	ans = nums[0]
+
+	for i in range(1,N):
+		curr_max = max(max_product*nums[i],min_product*nums[i],nums[i])
+		curr_min = min(min_product*nums[i],max_product*nums[i],nums[i])
+		ans = max(ans,curr_max)
+		max_product = curr_max
+		min_product = curr_min
+
+	return ans
+
 #arr = [-2,-3,7]
 #arr = [-1,-2,-3,0]
 #arr = [-2,0,-1]
 #arr = [2,3,-2,4]
 #arr = [-6,-1,-3,1,5,-2,4,-1,-5,3,-6,11000]
-#arr = [2,-5,-2,-4,3]
-arr = [0,-2,0]
-print(maxProduct(arr))
+arr = [2,-5,-2,-4,3]
+#arr = [0,-2,0]
+print(maxProductSubarray(arr))
