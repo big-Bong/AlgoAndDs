@@ -10,28 +10,20 @@ def canCompleteCircuit(gas,cost):
 	if(not neg_flag):
 		return 0
 
+	start = running_sum = sum_so_far = 0
 	for i in range(N):
-		if(gas[i] >= 0):
-			if(canComplete(gas,i,N)):
-				return i
-	return -1
+		running_sum += gas[i]
+		if(running_sum < 0):
+			start = -1
+			sum_so_far += running_sum
+			running_sum = 0
+		if(start == -1 and gas[i] >= 0):
+			start = i
 
-def canComplete(gas,start_pos,N):
-	i = start_pos
-	end_pos = i-1 if(start_pos != 0) else N - 1
-	final_sum = 0
-	while(i != end_pos):
-		final_sum += gas[i]
-		if(final_sum < 0):
-			return False
-		i += 1
-		if(i == N):
-			i = 0
-	final_sum += gas[i]
-	if(final_sum < 0):
-		return False
-
-	return True
+	if(running_sum + sum_so_far < 0):
+		return -1
+	else:
+		return start
 
 
 
@@ -39,7 +31,9 @@ def canComplete(gas,start_pos,N):
 #cost = [3,4,5,1,2]
 #gas = [2,3,4]
 #cost = [3,4,3]
-gas = [6,1,4,3,5]
-cost = [3,8,2,4,2]
+#gas = [6,1,4,3,5]
+#cost = [3,8,2,4,2]
+gas = [1,4,2,5]
+cost = [3,2,5,1]
 
 print(canCompleteCircuit(gas,cost))
