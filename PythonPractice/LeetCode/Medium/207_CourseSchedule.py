@@ -25,5 +25,5 @@ def DFS(graph,i,visited):
 	return True
 
 numCourses = 3
-prerequisites = [[0,1],[2,0],[1,2]]
-print(canFinish(numCourses,prerequisites))
+prerequisites = [[0,1],[0,2],[1,2]]
+print(canFinish2(numCourses,prerequisites))
