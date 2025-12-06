@@ -24,6 +24,19 @@ def inorderTraversal(node):
     
     return
 
+def inorderIterative(node):
+    stack_arr = []
+
+    while(node or stack_arr):
+        while(node):
+            stack_arr.append(node)
+            node = node.left
+
+        node = stack_arr.pop()
+        print(node.val)
+
+        node = node.right
+
 def preorderTraversal(node):
     if(not node):
         return
@@ -36,6 +49,26 @@ def preorderTraversal(node):
         preorderTraversal(node.right)
     
     return
+
+def preorderIterative(node):
+    stack_arr = [node]
+
+    while(node or stack_arr):
+        print(node.val)
+    
+        if(node.left):
+            stack_arr.append(node.left)
+            node = node.left
+            continue
+        
+        node = stack_arr.pop()
+        if(node.right):
+            stack_arr.append(node.right)
+            node = node.right
+            continue
+        
+
+
 
 def postorderTraversal(node):
     if(not node):
@@ -63,4 +96,4 @@ if __name__ == "__main__":
     root.right.left.insertLeftNode(Node(13))
     root.right.right.insertRightNode(Node(8))
 
-    postorderTraversal(root)
+    inorderIterative(root)
