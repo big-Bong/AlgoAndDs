@@ -21,6 +21,22 @@ def longestCommonPrefix(strs: List[str]) -> str:
 			lcp_main = lcp
 	return lcp_main
 
+def longestCommonPrefixOptimized(strs: List[str]) -> str:
+	if not strs:
+		return ""
+	
+	prefix = strs[0]
+	for word in strs[1:]:
+		j = 0
+		while j < min(len(prefix),len(word)) and prefix[j] == word[j]:
+			j += 1
+		prefix = word[:j]
+		if not prefix:
+			return ""
+
+	return prefix
+
+
 if __name__ == "__main__":
-	strs = ["dumb","numb","crumb"]
-	print(longestCommonPrefix(strs))
+	strs = ["aa"]
+	print(longestCommonPrefixOptimized(strs))
