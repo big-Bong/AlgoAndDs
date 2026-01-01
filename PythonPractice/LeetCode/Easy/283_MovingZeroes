@@ -14,10 +14,22 @@ def moveZeroes(nums: List[int]) -> None:
             nums[nzp] = 0
             zp += 1
         nzp += 1
-        
+
+def moveZeroesOptim(nums: List[int]) -> None:
+    pointer = 0
+    for num in nums:
+        if(num != 0):
+            nums[pointer] = num
+            pointer += 1
+    while(pointer < len(nums)):
+        nums[pointer] = 0
+        pointer += 1
+            
+           
 
 if __name__ == "__main__":
-    #nums = [0,1,0,3,12]
-    nums = [1,1,1,0,1]
-    moveZeroes(nums=nums)
+    nums = [0,1,0,3,12]
+    #nums = [1,1,1,0,1]
+    #moveZeroes(nums=nums)
+    moveZeroesOptim(nums=nums)
     print(nums)
