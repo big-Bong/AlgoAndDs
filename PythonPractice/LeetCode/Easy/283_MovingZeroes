@@ -1,0 +1,23 @@
+from typing import List
+
+def moveZeroes(nums: List[int]) -> None:
+    zp = 0
+    nzp = 0
+    
+    while(zp < len(nums) and nums[zp]!= 0):
+        zp += 1
+        nzp += 1
+    
+    while(nzp < len(nums)):
+        if(nums[nzp] != 0):
+            nums[zp] = nums[nzp]
+            nums[nzp] = 0
+            zp += 1
+        nzp += 1
+        
+
+if __name__ == "__main__":
+    #nums = [0,1,0,3,12]
+    nums = [1,1,1,0,1]
+    moveZeroes(nums=nums)
+    print(nums)
