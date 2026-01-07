@@ -1,0 +1,20 @@
+from typing import List
+
+#Easier version of rotating array with O(n) space
+def rotate(nums: List[int], k: int) -> List[int]:
+    arr_len = len(nums)
+    rotated_arr = [0]*arr_len
+
+    for i in range(k,arr_len):
+        rotated_arr[i] = nums[i-k]
+    
+    for i in range(0,k):
+        rotated_arr[i] = nums[arr_len-k+i]
+    
+    return rotated_arr
+
+if __name__ == "__main__":
+    nums = [-1,-100,3,99]
+    k = 3
+    print(rotate(nums=nums,k=k))
+
