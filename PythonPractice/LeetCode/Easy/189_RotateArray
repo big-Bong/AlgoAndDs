@@ -3,6 +3,7 @@ from typing import List
 #Easier version of rotating array with O(n) space
 def rotate(nums: List[int], k: int) -> List[int]:
     arr_len = len(nums)
+    k = k%arr_len
     rotated_arr = [0]*arr_len
 
     for i in range(k,arr_len):
@@ -13,8 +14,31 @@ def rotate(nums: List[int], k: int) -> List[int]:
     
     return rotated_arr
 
+#Efficient O(n) solution without extra space
+def rotate_efficient(nums: List[int], k: int) -> None:
+    n = len(nums)
+    k = k%n
+    nums.reverse()
+    part_reverse(nums,0,k-1)
+    part_reverse(nums,k,n-1)
+    
+
+def part_reverse(nums: List[int], start: int, end: int) -> None:
+    while(start < end):
+        temp = nums[start]
+        nums[start] = nums[end]
+        nums[end] = temp
+        start += 1
+        end -= 1
+
+
+
+
 if __name__ == "__main__":
-    nums = [-1,-100,3,99]
-    k = 3
+    #nums = [-1,-100,3,99]
+    nums = [1,2,3]
+    k = 2
     print(rotate(nums=nums,k=k))
+    rotate_efficient(nums,k)
+    print(nums)
 
