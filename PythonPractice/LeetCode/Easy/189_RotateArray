@@ -24,10 +24,8 @@ def rotate_efficient(nums: List[int], k: int) -> None:
     
 
 def part_reverse(nums: List[int], start: int, end: int) -> None:
-    while(start < end):
-        temp = nums[start]
-        nums[start] = nums[end]
-        nums[end] = temp
+    while start < end:
+        nums[start], nums[end] = nums[end], nums[start]
         start += 1
         end -= 1
 
